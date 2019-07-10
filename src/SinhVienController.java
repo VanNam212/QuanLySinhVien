@@ -17,4 +17,20 @@ public class SinhVienController {
             System.out.println(sinhViens[i]);
         }
     }
+
+    public void remove(int index) {
+        if (index < 0 || index >= size) {
+            System.out.println("Dia chi khong ton tai");
+        } else {
+            for (int i = index; i < size - 1; i++) {
+                sinhViens[i].setNameSV(sinhViens[i + 1].getNameSV());
+                sinhViens[i].setAddressSV(sinhViens[i + 1].getAddressSV());
+                sinhViens[i].setYearSV(sinhViens[i + 1].getYearSV());
+                sinhViens[i].setPointSV(sinhViens[i + 1].getPointSV());
+            }
+            size--;
+            sinhViens = Arrays.copyOf(sinhViens, size);
+            System.out.println("Complete");
+        }
+    }
 }
